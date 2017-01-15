@@ -35,7 +35,7 @@ audio.decrease(10)
 
 # Functions
 
-### module(interval)
+### polling(interval)
 
 - `Number` interval: milliseconds for check volume changes. (**Default** 500)
 
