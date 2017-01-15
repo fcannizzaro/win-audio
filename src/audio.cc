@@ -29,7 +29,8 @@ IAudioEndpointVolume* getVolume(){
 void get(const FunctionCallbackInfo<Value>& args) {
   float volume = 0;
   getVolume()->GetMasterVolumeLevelScalar(&volume);
-  args.GetReturnValue().Set(v8::Integer::New(args.GetIsolate(),(int)(round(volume*100))));
+  int value = (int) round(volume*100);
+  args.GetReturnValue().Set(v8::Integer::New(args.GetIsolate(), value));
   CoUninitialize();
 }
 

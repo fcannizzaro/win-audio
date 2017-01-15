@@ -11,7 +11,7 @@ npm i --save win-audio
 ```
 
 ### Requirements
-[node-gyp](https://github.com/nodejs/node-gyp#installation) to build **src/audio.cpp**
+[node-gyp](https://github.com/nodejs/node-gyp#installation) to build **src/audio.cc**
 
 # Usage
 
