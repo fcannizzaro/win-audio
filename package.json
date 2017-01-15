@@ -1,0 +1,12 @@
+{
+  "name": "win-audio",
+  "version": "1.0.0",
+  "description": "Get, Set and Watch Master Audio Volume",
+  "main": "src/index.js",
+  "scripts": {
+    "install": "node-gyp rebuild"
+  },
+  "author": "Francesco Cannizzaro <francescosaverio.cannizzaro@gmail.com>",
+  "license": "MIT",
+  "gypfile": true
+}
