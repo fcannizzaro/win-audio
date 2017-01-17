@@ -1,6 +1,6 @@
 {
   "name": "win-audio",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Get, Set and Watch Master Audio Volume",
   "main": "src/index.js",
   "scripts": {
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/fcannizzaro/win-audio/issues"
   },
-  "homepage": "https://github.com/fcannizzaro/win-audio#readme"
+  "homepage": "https://github.com/fcannizzaro/win-audio#readme",
+  "keywords": [
+    "audio",
+    "windows"
+  ]
 }
