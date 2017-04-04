@@ -13,25 +13,44 @@ npm i --save win-audio
 ### Requirements
 [node-gyp](https://github.com/nodejs/node-gyp#installation) to build **src/audio.cc**
 
+# Module
+```javascript
+ var win = require('win-audio');
+
+ // manage speaker volume
+ var speaker = win.speaker;
+
+ // manage mic volume
+ var microphone = win.mic;
+```
+
 # Usage
 
 ```javascript
-var audio = require('win-audio')
+var audio = require('../index').speaker;
 
-audio.polling(200)
+audio.polling(200);
 
-audio.on('change', (volume) => {
-  console.log("old %d%% -> new %d%%", volume.old, volume.new)
-})
+audio.events.on('change', (volume) => {
+  console.log("volume: old %d%% -> new %d%%", volume.old, volume.new);
+});
 
-audio.set(75)
+audio.events.on('toggle', (status) => {
+  console.log("muted: %s -> %s", status.old, status.new);
+});
 
-audio.increase(25)
+audio.set(40);
 
-audio.mute()
+audio.increase(20);
 
-audio.decrease(10)
+audio.decrease(10);
+
+audio.mute();
 ```
+
+## Breaking changes version 1.0.1 -> 1.1.0
+- **EventEmitter** is now audio.events
+- **all functions** should be called on "speaker" or "mic" object
 
 # Functions
 
@@ -73,6 +92,9 @@ Mute/Unmute volume according to current status.
 
 ### change
 Called when volume is changed.
+
+### toggle
+Called when volume is muted/unmuted.
 
 # Author
 Francesco Cannizzaro
