@@ -86,7 +86,7 @@ Mute volume.
 ### unmute()
 Unmute volume.
 
-### toggleMute()
+### toggle()
 Mute/Unmute volume according to current status.
 
 # Events
