@@ -49,8 +49,9 @@ audio.mute();
 ```
 
 ## Breaking changes version 1.0.1 -> 1.1.0
-- **EventEmitter** is now audio.events
-- **all functions** should be called on "speaker" or "mic" object
+- **EventEmitter** is now **audio.events**
+- **toggleMute** is now **toggle**
+- **all functions** should be called on "**speaker**" or "**mic**" object
 
 # Functions
 
