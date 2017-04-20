@@ -10,8 +10,6 @@ var init = (mic) => {
     status: audio.isMute(mic)
   };
 
-  audio.mute(mic, 1);
-
   /**
    * Check and update current volume. [Generic]
    */
