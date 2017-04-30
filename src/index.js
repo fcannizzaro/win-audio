@@ -108,6 +108,11 @@ var init = (mic) => {
     increase(-value);
   };
 
+  /**
+   * Check if is muted
+   */
+  var isMuted = () => audio.isMute(mic) == 1;
+
   return {
     events: events,
     polling: polling,
@@ -117,6 +122,7 @@ var init = (mic) => {
     decrease: decrease,
     mute: mute,
     unmute: unmute,
+    isMuted: isMuted,
     toggle: toggle
   }
 

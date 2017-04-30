@@ -1,4 +1,4 @@
-var audio = require('../index').speaker;
+var audio = require('./src/index').speaker;
 
 audio.polling(200);
 
@@ -17,3 +17,5 @@ audio.increase(20);
 audio.decrease(10);
 
 audio.mute();
+
+console.log(audio.isMuted());

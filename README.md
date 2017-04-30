@@ -11,7 +11,7 @@ npm i --save win-audio
 ```
 
 ### Requirements
-[node-gyp](https://github.com/nodejs/node-gyp#installation) to build **src/audio.cc**
+[node-gyp](https://github.com/nodejs/node-gyp#installation) to build **audio.cc**
 
 # Module
 ```javascript
@@ -61,6 +61,9 @@ audio.mute();
 
 ### get()
 **Return** current percentage of volume.
+
+### isMuted()
+**Return** if speaker/mic is muted.
 
 ### set(value)
 
