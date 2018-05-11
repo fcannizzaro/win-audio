@@ -48,57 +48,56 @@ audio.decrease(10);
 audio.mute();
 ```
 
-## Breaking changes version 1.0.1 -> 1.1.0
-- **EventEmitter** is now **audio.events**
-- **toggleMute** is now **toggle**
-- **all functions** should be called on "**speaker**" or "**mic**" object
-
 # Functions
 
-### polling(interval)
+#### `polling(interval: int = 500)`
 
-- `Number` interval: milliseconds for check volume changes. (**Default** 500)
+- interval: milliseconds for check volume changes.
 
-### get()
+#### `get()`
 **Return** current percentage of volume.
 
-### isMuted()
+#### `isMuted()`
 **Return** if speaker/mic is muted.
 
-### set(value)
+#### `set(value: int)`
 
-Set a new master volume.
+ Set a new master volume.
+ 
+ - value: percentage of new volume. **[0-100]**
 
-- `Number` value: percentage of new volume. **[0-100]**
-
-### increase(value)
+#### `increase(value: int)`
 
 Increase current volume of value %.
 
-- `Number` value: percentage. **[0-100]**
+- value: percentage. **[0-100]**
 
-### decrease(value)
+#### `decrease(value: int)`
 
 Decrease current volume of value %.
 
-- `Number` value: percentage. **[0-100]**
+- value: percentage. **[0-100]**
 
-### mute()
+#### `mute()`
 Mute volume.
 
-### unmute()
+#### `unmute()`
 Unmute volume.
 
-### toggle()
+#### `toggle()`
 Mute/Unmute volume according to current status.
 
-# Events
+## Events
 
-### change
+#### `change`
 Called when volume is changed.
 
-### toggle
+#### `toggle`
 Called when volume is muted/unmuted.
+
+# Thanks to
+[Sebastian R (11AND2)](https://github.com/11AND2)
+
 
 # Author
 Francesco Cannizzaro

@@ -20,12 +20,9 @@ IAudioEndpointVolume* getVolume(int mic){
   CoInitialize(NULL);
   hr = CoCreateInstance(__uuidof(MMDeviceEnumerator), NULL, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID *) &enumerator);
   hr = enumerator->GetDefaultAudioEndpoint(mic ? eCapture : eRender, eConsole, &defaultDevice);
-  //Add/Change by Sebastian R (11AND2) - media@vec4.de
-  //changes licensed under public domain
   if (hr != 0) {
     return volume;
   }
-  //END Add/Change by 11AND2
   hr = defaultDevice->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_INPROC_SERVER, NULL, (LPVOID *) &volume);
   enumerator->Release();
   defaultDevice->Release();
@@ -36,8 +33,6 @@ IAudioEndpointVolume* getVolume(int mic){
 void get(const FunctionCallbackInfo<Value>& args) {
   float volume = 0;
   int mic = (int) args[0]->IntegerValue();
-  //Add/Change by Sebastian R (11AND2) - media@vec4.de
-  //changes licensed under public domain
   IAudioEndpointVolume *temp_volume = NULL;
   temp_volume = getVolume(mic);
   if (temp_volume == NULL) {
@@ -45,8 +40,6 @@ void get(const FunctionCallbackInfo<Value>& args) {
     return;
   }
   temp_volume->GetMasterVolumeLevelScalar(&volume);
-  //END Add/Change by 11AND2
-  //Removed by 11AND2 getVolume(mic)->GetMasterVolumeLevelScalar(&volume);
   int value = (int) round(volume*100);
   args.GetReturnValue().Set(v8::Integer::New(args.GetIsolate(), value));
 }
@@ -54,48 +47,47 @@ void get(const FunctionCallbackInfo<Value>& args) {
 void isMute(const FunctionCallbackInfo<Value>& args) {
   int mute = 0;
   int mic = (int) args[0]->IntegerValue();
-  //Add/Change by Sebastian R (11AND2) - media@vec4.de
-  //changes licensed under public domain
   IAudioEndpointVolume *temp_volume = NULL;
   temp_volume = getVolume(mic);
+
   if (temp_volume == NULL) {
     args.GetReturnValue().Set(v8::Integer::New(args.GetIsolate(), -999));
     return;
   }
+
   temp_volume->GetMute(&mute);
-  //END Add/Change by 11AND2
-  //Removed by 11AND2 getVolume(mic)->GetMute(&mute);
   args.GetReturnValue().Set(v8::Integer::New(args.GetIsolate(), mute));
+  
 }
 
 void mute(const FunctionCallbackInfo<Value>& args) {
   int mic = (int) args[0]->IntegerValue();
   int mute = (int) args[1]->IntegerValue();
-  //Add/Change by Sebastian R (11AND2) - media@vec4.de
-  //changes licensed under public domain
+
   IAudioEndpointVolume *temp_volume = NULL;
   temp_volume = getVolume(mic);
+
   if (temp_volume == NULL) {
     return;
   }
+
   temp_volume->SetMute(mute, NULL);
-  //END Add/Change by 11AND2
-  //Removed by 11AND2 getVolume(mic)->SetMute(mute, NULL);
+
 }
 
 void set(const FunctionCallbackInfo<Value>& args) {
   float newVolume = (float) args[0]->IntegerValue()/100.0f;
   int mic = (int) args[1]->IntegerValue();
-  //Add/Change by Sebastian R (11AND2) - media@vec4.de
-  //changes licensed under public domain
+
   IAudioEndpointVolume *temp_volume = NULL;
   temp_volume = getVolume(mic);
+
   if (temp_volume == NULL) {
     return;
   }
+
   temp_volume->SetMasterVolumeLevelScalar(newVolume, NULL);
-  //END Add/Change by 11AND2
-  //Removed by 11AND2 getVolume(mic)->SetMasterVolumeLevelScalar(newVolume, NULL);
+
 }
 
 void init(Local<Object> exports) {
