@@ -1,6 +1,7 @@
 # win-audio
 Get, Set and Watch Speaker/Microphone Volume on Windows
 
+[![Build Status](https://travis-ci.org/fcannizzaro/win-audio.svg?branch=master)](https://travis-ci.org/fcannizzaro/win-audio)
 [![npm](https://img.shields.io/npm/v/win-audio.svg)](https://www.npmjs.com/package/win-audio)
 [![npm](https://img.shields.io/npm/dm/win-audio.svg)](https://www.npmjs.com/package/win-audio)
 
