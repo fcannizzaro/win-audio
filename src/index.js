@@ -7,7 +7,7 @@ var init = (mic) => {
 
   var data = {
     audio: audio.get(mic),
-    status: audio.isMute(mic)
+    status: audio.isMuted(mic)
   };
 
   /**
@@ -16,6 +16,10 @@ var init = (mic) => {
   var _check = (fn, key, event) => {
 
     let now = fn(mic);
+
+    if (key == 'status') {
+      now = Boolean(now);
+    }
 
     if (data[key] != now) {
       events.emit(event, {
@@ -33,15 +37,13 @@ var init = (mic) => {
    */
   var check = () => {
     _check(audio.get, 'audio', 'change');
-    _check(audio.isMute, 'status', 'toggle');
+    _check(audio.isMuted, 'status', 'toggle');
   };
 
   /**
    * Get current audio
    */
-  var get = () => {
-    return audio.get(mic);
-  };
+  var get = () => audio.get(mic);
 
   /**
    * Update current and delegate audio set to native module.
@@ -54,22 +56,19 @@ var init = (mic) => {
   /**
    * Save current status and mute volume.
    */
-  var mute = () => {
-    audio.mute(mic, 1);
-  };
+  var mute = () => audio.mute(mic, 1);
+
 
   /**
    * Restore previous volume.
    */
-  var unmute = () => {
-    audio.mute(mic, 0);
-  };
+  var unmute = () => audio.mute(mic, 0);
 
   /**
    * Mute/Unmute volume.
    */
   var toggle = () => {
-    if (audio.isMute(mic))
+    if (audio.isMuted(mic))
       unmute();
     else
       mute();
@@ -78,9 +77,7 @@ var init = (mic) => {
   /**
    * React to volume changes using polling check.
    */
-  var polling = (interval) => {
-    setInterval(check, interval || 500);
-  };
+  var polling = (interval) => setInterval(check, interval || 500);
 
   /**
    * Increase current volume of value%
@@ -104,14 +101,13 @@ var init = (mic) => {
   /**
    * Decrease current volume of value%
    */
-  var decrease = (value) => {
-    increase(-value);
-  };
+  var decrease = (value) => increase(-value);
+
 
   /**
    * Check if is muted
    */
-  var isMuted = () => audio.isMute(mic) == 1;
+  var isMuted = () => audio.isMuted(mic) == 1;
 
   return {
     events: events,

@@ -2,7 +2,7 @@
   "targets": [
     {
       "target_name": "audio",
-      "sources": [ "audio.cc" ],
+      "sources": [ "audio-napi.cc" ],
       "cflags" : [ "-lole32", "-loleaut32"]
     }
   ]

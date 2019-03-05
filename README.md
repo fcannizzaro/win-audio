@@ -12,23 +12,26 @@ npm i --save win-audio
 ```
 
 ### Requirements
-[node-gyp](https://github.com/nodejs/node-gyp#installation) to build **audio.cc**
+[node-gyp](https://github.com/nodejs/node-gyp#installation) to build **audio-napi.cc**
+
+### Version 2.0.0
+This version requires **N-API**, and **node** version **>= 8.6.0**
 
 # Module
 ```javascript
- var win = require('win-audio');
+ const win = require('win-audio');
 
  // manage speaker volume
- var speaker = win.speaker;
+ const speaker = win.speaker;
 
  // manage mic volume
- var microphone = win.mic;
+ const microphone = win.mic;
 ```
 
 # Usage
 
 ```javascript
-var audio = require('win-audio').speaker;
+const audio = require('win-audio').speaker;
 
 audio.polling(200);
 
@@ -101,4 +104,4 @@ Called when volume is muted/unmuted.
 
 
 # Author
-Francesco Cannizzaro
+Francesco Saverio Cannizzaro
