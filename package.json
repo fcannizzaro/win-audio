@@ -4,7 +4,8 @@
   "description": "Get, Set and Watch Speaker/Microphone Volume on Windows",
   "main": "dist/index.js",
   "scripts": {
-    "test": "npm i && node sample"
+    "test": "npm i && node sample",
+    "babel": "npx babel src --out-dir dist"
   },
   "author": "Francesco Cannizzaro <francescosaverio.cannizzaro@gmail.com>",
   "license": "MIT",
