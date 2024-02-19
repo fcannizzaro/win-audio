@@ -1,14 +1,15 @@
 {
   "name": "win-audio",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "Get, Set and Watch Speaker/Microphone Volume on Windows",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "os": [
     "win32"
   ],
   "scripts": {
-    "test": "npm i && node sample",
-    "babel": "npx babel src --out-dir dist"
+    "build": "tsc",
+    "test": "node dist/sample.js"
   },
   "author": "Francesco Cannizzaro <francescosaverio.cannizzaro@gmail.com>",
   "license": "MIT",
@@ -28,8 +29,13 @@
     "windows"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4"
+    "@biomejs/biome": "^1.5.3",
+    "@tsconfig/node20": "^20.1.2",
+    "@types/bindings": "^1.5.5",
+    "@types/node": "^20.11.19",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "bindings": "^1.5.0"
   }
 }
