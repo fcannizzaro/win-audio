@@ -8,10 +8,9 @@
     "win32"
   ],
   "scripts": {
-    "build": "tsc",
-    "test": "node dist/sample.js"
+    "build": "tsc"
   },
-  "author": "Francesco Cannizzaro <francescosaverio.cannizzaro@gmail.com>",
+  "author": "Francesco Saverio Cannizzaro <fcannizzaro>",
   "license": "MIT",
   "gypfile": true,
   "repository": {
