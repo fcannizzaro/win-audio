@@ -40,6 +40,7 @@ void get(const FunctionCallbackInfo<Value>& args) {
     return;
   }
   temp_volume->GetMasterVolumeLevelScalar(&volume);
+  temp_volume->Release();
   int value = (int) round(volume*100);
   args.GetReturnValue().Set(v8::Integer::New(args.GetIsolate(), value));
 }
@@ -56,6 +57,7 @@ void isMute(const FunctionCallbackInfo<Value>& args) {
   }
 
   temp_volume->GetMute(&mute);
+  temp_volume->Release();
   args.GetReturnValue().Set(v8::Integer::New(args.GetIsolate(), mute));
   
 }
@@ -72,7 +74,7 @@ void mute(const FunctionCallbackInfo<Value>& args) {
   }
 
   temp_volume->SetMute(mute, NULL);
-
+  temp_volume->Release();
 }
 
 void set(const FunctionCallbackInfo<Value>& args) {
@@ -87,7 +89,7 @@ void set(const FunctionCallbackInfo<Value>& args) {
   }
 
   temp_volume->SetMasterVolumeLevelScalar(newVolume, NULL);
-
+  temp_volume->Release();
 }
 
 void init(Local<Object> exports) {
