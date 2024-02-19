@@ -53,6 +53,7 @@ napi_value get(napi_env env, napi_callback_info info) {
   }
 
   tmp_volume->GetMasterVolumeLevelScalar(&volume);
+  tmp_volume->Release();
   return toValue(env, (int) round(volume*100));
 }
 
@@ -68,6 +69,7 @@ napi_value isMuted(napi_env env, napi_callback_info info) {
   }
 
   tmp_volume->GetMute(&mute);
+  tmp_volume->Release();
   return toValue(env, mute);
 
 }
@@ -82,6 +84,7 @@ napi_value mute(napi_env env, napi_callback_info info) {
   }
 
   tmp_volume->SetMute(argv[1], NULL);
+  tmp_volume->Release();
   return toValue(env, 1);
 
 }
@@ -99,6 +102,7 @@ napi_value set(napi_env env, napi_callback_info info) {
   }
 
   tmp_volume->SetMasterVolumeLevelScalar(newVolume, NULL);
+  tmp_volume->Release();
   return toValue(env, 1);
 
 }
