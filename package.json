@@ -1,6 +1,6 @@
 {
   "name": "win-audio",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Get, Set and Watch Speaker/Microphone Volume on Windows",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

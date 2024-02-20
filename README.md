@@ -1,7 +1,8 @@
 # win-audio
 
-Get, Set and Watch Speaker/Microphone Volume on Windows
+Get, set and watch speaker/microphone volumes on Windows
 
+[![Publish package to npmjs](https://github.com/fcannizzaro/win-audio/actions/workflows/publish-package.yaml/badge.svg)](https://github.com/fcannizzaro/win-audio/actions/workflows/publish-package.yaml)
 [![npm](https://img.shields.io/npm/v/win-audio.svg)](https://www.npmjs.com/package/win-audio)
 [![npm](https://img.shields.io/npm/dm/win-audio.svg)](https://www.npmjs.com/package/win-audio)
 
