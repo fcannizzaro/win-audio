@@ -1,107 +1,86 @@
 # win-audio
+
 Get, Set and Watch Speaker/Microphone Volume on Windows
 
-[![Build status](https://ci.appveyor.com/api/projects/status/iwo2mdxkn5fsday1?svg=true)](https://ci.appveyor.com/project/fcannizzaro/win-audio)
 [![npm](https://img.shields.io/npm/v/win-audio.svg)](https://www.npmjs.com/package/win-audio)
 [![npm](https://img.shields.io/npm/dm/win-audio.svg)](https://www.npmjs.com/package/win-audio)
 
-# Install
+## Install
 
 ```sh
 npm i --save win-audio
+# or
+yarn add win-audio
+# or
+pnpm add win-audio
 ```
 
-### Requirements
+## Requirements
+
 [node-gyp](https://github.com/nodejs/node-gyp#installation) to build **audio-napi.cc**
 
-### Version 2.0.0
 This version requires **N-API**, and **node** version **>= 8.6.0**
 
-# Module
-```javascript
- const win = require('win-audio');
+## Module
+
+```typescript
+import audio from 'win-audio';
 
  // manage speaker volume
- const speaker = win.speaker;
+ const speaker = audio.speaker;
 
  // manage mic volume
- const microphone = win.mic;
+ const microphone = audio.mic;
 ```
 
-# Usage
+## Usage
 
 ```javascript
-const audio = require('win-audio').speaker;
+import audio from 'win-audio';
 
-audio.polling(200);
+const speaker = audio.speaker;
 
-audio.events.on('change', (volume) => {
+// start watching audio devices
+speaker.start(200);
+
+// listen for volume changes
+speaker.on('change', (volume) => {
   console.log("old %d%% -> new %d%%", volume.old, volume.new);
 });
 
-audio.events.on('toggle', (status) => {
+// listen for mute changes
+speaker.on('toggle', (status) => {
   console.log("muted: %s -> %s", status.old, status.new);
 });
 
-audio.set(40);
+// set volume to 40%
+speaker.set(40);
 
-audio.increase(20);
+// increase volume by 20%
+speaker.increase(20);
 
-audio.decrease(10);
+// decrease volume by 10%
+speaker.decrease(10);
 
-audio.mute();
+// mute volume
+speaker.mute();
+
+// unmute volume
+speaker.unmute();
+
+// get volume
+console.log(speaker.get());
+
+// stop watching audio devices
+speaker.stop()
 ```
 
-# Functions
+## Thanks to
 
-#### `polling(interval: int = 500)`
-
-- interval: milliseconds for check volume changes.
-
-#### `get()`
-**Return** current percentage of volume.
-
-#### `isMuted()`
-**Return** if speaker/mic is muted.
-
-#### `set(value: int)`
-
- Set a new master volume.
- 
- - value: percentage of new volume. **[0-100]**
-
-#### `increase(value: int)`
-
-Increase current volume of value %.
-
-- value: percentage. **[0-100]**
-
-#### `decrease(value: int)`
-
-Decrease current volume of value %.
-
-- value: percentage. **[0-100]**
-
-#### `mute()`
-Mute volume.
-
-#### `unmute()`
-Unmute volume.
-
-#### `toggle()`
-Mute/Unmute volume according to current status.
-
-## Events
-
-#### `change`
-Called when volume is changed.
-
-#### `toggle`
-Called when volume is muted/unmuted.
-
-# Thanks to
 [Sebastian R (11AND2)](https://github.com/11AND2)
 
+[Emilijus436](https://github.com/Emilijus436)
 
-# Author
-Francesco Saverio Cannizzaro
+## Author
+
+Francesco Saverio Cannizzaro (fcannizzaro)
