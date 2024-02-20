@@ -7,6 +7,15 @@
   "os": [
     "win32"
   ],
+  "files": [
+    "dist",
+    "audio.cc",
+    "audio-napi.cc",
+    "bindings.gyp",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc"
   },
