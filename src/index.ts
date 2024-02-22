@@ -60,7 +60,7 @@ const initDevice = (mic: boolean) => {
   /**
    * Get current audio
    */
-  const get = () => audio.get(mic);
+  const get = (): number => audio.get(mic);
 
   /**
    * Update current and delegate audio set to native module.
@@ -73,12 +73,12 @@ const initDevice = (mic: boolean) => {
   /**
    * Save current status and mute volume.
    */
-  const mute = () => audio.mute(mic, 1);
+  const mute = (): void => audio.mute(mic, 1);
 
   /**
    * Restore previous volume.
    */
-  const unmute = () => audio.mute(mic, 0);
+  const unmute = (): void => audio.mute(mic, 0);
 
   /**
    * Mute/Unmute volume.
@@ -152,7 +152,7 @@ type ProxyInstances = {
 
 const instances: Partial<ProxyInstances> = {};
 
-export default new Proxy(
+const proxy = new Proxy(
   {},
   {
     get: (_, prop: "speaker" | "mic") => {
@@ -165,3 +165,7 @@ export default new Proxy(
     },
   }
 ) as ProxyInstances;
+
+export default proxy;
+
+module.exports = proxy;
