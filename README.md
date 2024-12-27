@@ -27,11 +27,11 @@ This version requires **N-API**, and **node** version **>= 8.6.0**
 ```typescript
 import audio from 'win-audio';
 
- // manage speaker volume
- const speaker = audio.speaker;
+// manage speaker volume
+const speaker = audio.speaker;
 
- // manage mic volume
- const microphone = audio.mic;
+// manage mic volume
+const microphone = audio.mic;
 ```
 
 ## Usage
