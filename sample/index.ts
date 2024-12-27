@@ -1,4 +1,4 @@
-import audio from "../src";
+import audio from "..";
 
 const speaker = audio.speaker;
 
