@@ -167,3 +167,5 @@ const proxy = new Proxy(
 ) as ProxyInstances;
 
 export default proxy;
+
+module.exports = proxy;
